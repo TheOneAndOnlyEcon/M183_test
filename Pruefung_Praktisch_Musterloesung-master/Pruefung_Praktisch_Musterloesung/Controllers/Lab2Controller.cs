@@ -9,6 +9,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Data.SqlClient;
 using Pruefung_Praktisch_Musterloesung.Models;
+using System.Web.SessionState;
 
 namespace Pruefung_Praktisch_Musterloesung.Controllers
 {
@@ -16,10 +17,15 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
     {
 
         /**
+        * Session ID fehler
+        * 1) Die Session ID wird garnicht überprüft. Es kann irgenein login eingegeben werden und man kann sich so einloggen
+        * 2) Funktionsweise(Url: http://localhost:50374/Lab2/login?sid=fakeID)
+        * 3) Es wird irgendein login eingegeben und mann kan einfach so ins backend gelangen
         * 
-        * Die Session wird garnicht überprüft. Es kann irgenein login eingegeben werden und man kann sich so einloggen
-        * Funktionsweise(Url: http://localhost:50374/Lab2): Es wird ein login eingegeben und mann kan einfach so ins backend gelangen
-        * 
+        * Browser wird nicht überprüft
+        * 1) Es wird nicht überprüft welcher browser verwendet wird
+        * 2) http://localhost:50374/Lab2   (beim login wird der broswer nicht überprüft
+        * 3) Es können keine Browser Spezifische sicherheitsmassnahmen getroffen werden
         * */
 
         public ActionResult Index() {
@@ -31,7 +37,17 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
                 var hash = (new SHA1Managed()).ComputeHash(Encoding.UTF8.GetBytes(DateTime.Now.ToString()));
                 sessionid = string.Join("", hash.Select(b => b.ToString("x2")).ToArray());
             }
+            //erstellen einer neuen ID
+            /* Auskommentiert weil es nicht korrekt funktioniert!
+            SessionIDManager manager = new SessionIDManager();
+            string newID = manager.CreateSessionID(Context);
+            bool redirected = false;
+            bool isAdded = false;
+            manager.SaveSessionID(Context, newID, out redirected, out isAdded);*/
 
+            //replace old Session ID with new Session ID
+            sessionid = newID;
+            //Zuerst muss eine neue Session ID generiert werden
             ViewBag.sessionid = sessionid;
 
             return View();
