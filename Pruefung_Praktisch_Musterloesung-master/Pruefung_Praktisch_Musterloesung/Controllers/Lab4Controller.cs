@@ -13,7 +13,7 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
 
         /**
         * 
-        * ANTWORTEN BITTE HIER
+        * Das Ziel ist es hier filter zu setzen für den Input welcher vom User gemacht wird
         * 
         * */
 
@@ -26,8 +26,8 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
         [HttpPost]
         public ActionResult Login()
         {
-            var username = Request["username"];
-            var password = Request["password"];
+            var username = Request["username"];//input filter setzen damit username auf email adresse mit kleinbuchstaben geprüft wird
+            var password = Request["password"];//input filter setzen damit passwort auf min 10 max 20 zeichen geprüft wird
 
             bool intrusion_detected = false;
         
