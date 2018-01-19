@@ -17,7 +17,8 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
 
         /**
         * 
-        * ANTWORTEN BITTE HIER
+        * Die Session wird garnicht überprüft. Es kann irgenein login eingegeben werden und man kann sich so einloggen
+        * Funktionsweise(Url: http://localhost:50374/Lab2): Es wird ein login eingegeben und mann kan einfach so ins backend gelangen
         * 
         * */
 

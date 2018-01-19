@@ -10,8 +10,15 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
     public class Lab1Controller : Controller
     {
         /**
-         * 
-         * ANTWORTEN BITTE HIER
+         * Möglichkeit 1
+         * 1)Navigieren Der Directiories
+         * Der Hacker navigiert durch die Directiories bis er auf vertrauliche/geheime Daten gelangt
+         *
+        *   Möglichkeit 2
+         * File Inclusion
+         * 1)Der hacker erstellt sein eigenes file und führt dieses aus.
+         * 2)Erstellen eines Files mit einer Attacke, dieses File anschliessen in URl einbinden: http://localhost:50374/Lab1/index?file="attackefile"
+         * 3)Über den URL kann dein falsches File angesprochen werden (File aus Beispiel 2)
          * 
          * */
 
