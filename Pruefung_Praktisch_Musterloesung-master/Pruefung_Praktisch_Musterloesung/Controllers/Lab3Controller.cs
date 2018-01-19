@@ -13,7 +13,10 @@ namespace Pruefung_Praktisch_Musterloesung.Controllers
 
         /**
         * 
-        * ANTWORTEN BITTE HIER
+        * SQL-Injection
+        * 1) Durch bestimmtes SQL welches der Seite unerlaubt eingeführt wird können Daten ausgelesen werden welche geschütz sein sollten
+        * 2)
+        * 3) Das Sql wird in einer Eingabe an die Datenbank mitgeführt
         * 
         * */
 
